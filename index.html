@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rey Kar Auto — Piese Auto Husi, Judet Vaslui</title>
+  <meta name="description" content="Piese auto, uleiuri, filtre si accesorii in Husi. Incarcari freon, diagnoza completa. Str. Melchisedec 26, Husi, Vaslui."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --red:      #D81E2C;
+      --red-dark: #B0121E;
+      --black:    #0D0D0D;
+      --steel:    #3A3D42;
+      --steel-lt: #6B6F76;
+      --white:    #FFFFFF;
+      --gray-bg:  #F4F4F5;
+      --gold:     #F2B807;
+      --border:   #E2E2E4;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:var(--white); color:var(--black); overflow-x:hidden; }
+    h1,h2,h3,h4 { font-family:'Oswald',sans-serif; text-transform:uppercase; }
+
+    /* ── COOKIE BANNER ── */
+    .cookie-banner {
+      position:fixed; bottom:0; left:0; right:0; z-index:9999;
+      background:var(--black); border-top:3px solid var(--red);
+      padding:18px 32px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:20px; flex-wrap:wrap;
+    }
+    .cookie-banner.hidden { display:none; }
+    .cookie-text { font-size:13px; color:rgba(255,255,255,0.8); line-height:1.6; max-width:700px; }
+    .cookie-text a { color:var(--red); text-decoration:underline; }
+    .cookie-btns { display:flex; gap:10px; flex-shrink:0; }
+    .cookie-btn {
+      font-family:'Oswald',sans-serif; font-size:12px; font-weight:600;
+      letter-spacing:0.06em; text-transform:uppercase;
+      padding:10px 20px; cursor:pointer; border:2px solid var(--white);
+      transition:all .2s;
+    }
+    .cookie-accept { background:var(--red); border-color:var(--red); color:var(--white); }
+    .cookie-accept:hover { background:var(--red-dark); }
+    .cookie-reject { background:transparent; color:var(--white); }
+    .cookie-reject:hover { background:var(--white); color:var(--black); }
+
+    /* ── NAVBAR ── */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      background:var(--black); border-bottom:3px solid var(--red);
+    }
+    .nav-inner {
+      max-width:1280px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 32px;
+    }
+    .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+    .nav-logo-mark {
+      background:var(--red); color:var(--white);
+      font-family:'Oswald',sans-serif; font-weight:700; font-size:13px;
+      letter-spacing:0.04em; padding:8px 12px; line-height:1;
+      clip-path:polygon(0 0,100% 0,100% 70%,85% 100%,0 100%);
+    }
+    .nav-logo-text { font-family:'Oswald',sans-serif; font-weight:700; font-size:18px; color:var(--white); letter-spacing:0.02em; line-height:1; }
+    .nav-logo-text span { color:var(--red); }
+    .nav-logo-sub { font-size:9px; font-weight:400; letter-spacing:0.14em; color:var(--steel-lt); text-transform:uppercase; margin-top:2px; }
+    .nav-links { display:flex; align-items:center; gap:2px; list-style:none; }
+    .nav-item { position:relative; }
+    .nav-link {
+      display:flex; align-items:center; gap:5px;
+      font-family:'Oswald',sans-serif; font-size:13px; font-weight:500;
+      letter-spacing:0.06em; text-transform:uppercase;
+      color:var(--white); text-decoration:none; padding:10px 14px; transition:color .2s;
+    }
+    .nav-link:hover { color:var(--red); }
+    .nav-link-arrow { width:9px; height:9px; transition:transform .2s; }
+    .nav-item:hover .nav-link-arrow { transform:rotate(180deg); }
+    .mega-menu {
+      position:absolute; top:100%; left:50%; transform:translateX(-50%);
+      width:820px; background:var(--white); border-top:3px solid var(--red);
+      box-shadow:0 16px 40px rgba(0,0,0,0.22); padding:28px 32px;
+      display:none; grid-template-columns:repeat(3,1fr); gap:28px;
+    }
+    .nav-item:hover .mega-menu { display:grid; }
+    .mega-col-title {
+      font-family:'Oswald',sans-serif; font-size:11px; font-weight:600;
+      letter-spacing:0.1em; text-transform:uppercase; color:var(--red);
+      margin-bottom:10px; padding-bottom:7px; border-bottom:2px solid var(--gray-bg);
+    }
+    .mega-col a { display:block; font-size:13px; color:var(--steel); text-decoration:none; padding:4px 0; transition:color .15s, padding-left .15s; }
+    .mega-col a:hover { color:var(--red); padding-left:5px; }
+    .nav-right { display:flex; align-items:center; gap:12px; }
+    .nav-phone { display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--white); }
+    .nav-phone-icon { width:30px; height:30px; background:var(--red); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .nav-phone-icon svg { width:14px; height:14px; fill:var(--white); }
+    .nav-phone-label { font-size:9px; color:var(--steel-lt); text-transform:uppercase; letter-spacing:0.08em; }
+    .nav-phone-num { font-family:'Oswald',sans-serif; font-weight:600; font-size:13px; }
+    .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+    .hamburger span { width:22px; height:2px; background:var(--white); border-radius:1px; }
+    .mobile-menu { display:none; position:fixed; inset:0; top:63px; z-index:999; background:var(--black); overflow-y:auto; padding:20px; }
+    .mobile-menu.open { display:block; }
+    .mob-item { border-bottom:1px solid #1e1e1e; }
+    .mob-header {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:14px 4px; color:var(--white); font-family:'Oswald',sans-serif;
+      font-size:14px; font-weight:500; text-transform:uppercase; letter-spacing:0.04em;
+      cursor:pointer; text-decoration:none; background:none; border:none; width:100%;
+    }
+    .mob-body { display:none; padding:4px 4px 14px 12px; }
+    .mob-body.open { display:block; }
+    .mob-body a { display:block; color:var(--steel-lt); text-decoration:none; font-size:13px; padding:6px 0; }
+    .mob-sub { color:var(--red); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-top:10px; margin-bottom:2px; font-family:'Oswald',sans-serif; }
+    .mob-phone-cta { display:flex; align-items:center; justify-content:center; background:var(--red); color:var(--white); text-decoration:none; padding:14px; margin-top:18px; font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; letter-spacing:0.04em; }
+
+    /* ── HERO ── */
+    .hero {
+      margin-top:63px; position:relative;
+      min-height:640px; display:flex; align-items:center;
+      overflow:hidden; background:var(--black);
+    }
+    .hero-bg {
+      position:absolute; inset:0;
+      background-image:url('images/hero.jpg');
+      background-size:cover; background-position:center;
+      opacity:0.45;
+    }
+    /* TO CHANGE HERO IMAGE: replace images/hero.jpg */
+    .hero-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(13,13,13,0.5) 0%, rgba(13,13,13,0.82) 100%);
+    }
+    .hero-content {
+      position:relative; z-index:2;
+      width:100%; max-width:1280px; margin:0 auto;
+      padding:60px 32px; text-align:center;
+    }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(216,30,44,0.15); border:1px solid rgba(216,30,44,0.5);
+      color:var(--red); font-family:'Oswald',sans-serif; font-size:11px;
+      font-weight:600; letter-spacing:0.12em; text-transform:uppercase;
+      padding:6px 14px; margin-bottom:20px;
+    }
+    .hero-badge::before { content:''; width:6px; height:6px; background:var(--red); border-radius:50%; animation:pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+    .hero-title {
+      font-size:clamp(34px,5.5vw,62px); font-weight:700; line-height:1.05;
+      color:var(--white); margin-bottom:14px; max-width:700px; margin-left:auto; margin-right:auto;
+    }
+    .hero-title span { color:var(--red); }
+    .hero-sub {
+      font-size:15px; font-weight:300; color:rgba(255,255,255,0.75);
+      max-width:520px; line-height:1.65; margin:0 auto 36px;
+    }
+    .hero-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:44px; }
+    .btn {
+      display:inline-flex; align-items:center; gap:8px;
+      font-family:'Oswald',sans-serif; font-weight:600; font-size:13px;
+      letter-spacing:0.05em; text-transform:uppercase;
+      padding:13px 26px; text-decoration:none; transition:all .2s; border:2px solid transparent; cursor:pointer;
+    }
+    .btn-red { background:var(--red); color:var(--white); }
+    .btn-red:hover { background:var(--red-dark); }
+    .btn-white-outline { border-color:rgba(255,255,255,0.6); color:var(--white); }
+    .btn-white-outline:hover { background:var(--white); color:var(--black); }
+    .btn-dark { background:var(--black); color:var(--white); border-color:var(--black); }
+    .btn-dark:hover { background:#222; }
+
+    /* ── HERO STATS ── */
+    .hero-stats {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      border-top:1px solid rgba(255,255,255,0.12);
+      padding-top:24px; max-width:700px; margin:0 auto;
+    }
+    .hero-stat { text-align:center; padding:0 16px; border-right:1px solid rgba(255,255,255,0.12); }
+    .hero-stat:last-child { border-right:none; }
+    .hero-stat-num { font-family:'Oswald',sans-serif; font-size:22px; font-weight:700; color:var(--white); line-height:1; }
+    .hero-stat-label { font-size:10px; color:rgba(255,255,255,0.55); text-transform:uppercase; letter-spacing:0.06em; margin-top:3px; }
+
+    /* ── CAR FINDER ── */
+    .car-finder-wrap {
+      position:relative; z-index:3;
+      background:rgba(13,13,13,0.92);
+      border:1px solid rgba(216,30,44,0.4);
+      border-top:3px solid var(--red);
+      max-width:900px; margin:0 auto 0;
+      padding:24px 28px;
+    }
+    .cf-title {
+      font-family:'Oswald',sans-serif; font-size:14px; font-weight:600;
+      color:var(--white); text-transform:uppercase; letter-spacing:0.06em;
+      margin-bottom:16px; display:flex; align-items:center; gap:8px;
+    }
+    .cf-title::before { content:''; width:18px; height:2px; background:var(--red); }
+    .cf-grid {
+      display:grid; grid-template-columns:1fr 1fr 1fr 1.2fr auto;
+      gap:10px; align-items:end;
+    }
+    .cf-field label {
+      display:block; font-size:10px; font-weight:600; letter-spacing:0.1em;
+      text-transform:uppercase; color:var(--steel-lt); margin-bottom:6px;
+    }
+    .cf-field select, .cf-field input {
+      width:100%; padding:11px 14px;
+      background:#1a1a1a; border:1px solid #333; color:var(--white);
+      font-family:'Inter',sans-serif; font-size:13px;
+      appearance:none; -webkit-appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat:no-repeat; background-position:right 12px center;
+      cursor:pointer; transition:border-color .2s;
+    }
+    .cf-field input {
+      background-image:none; cursor:text;
+    }
+    .cf-field select:focus, .cf-field input:focus { border-color:var(--red); outline:none; }
+    .cf-field select:disabled { opacity:0.4; cursor:not-allowed; }
+    .cf-field input::placeholder { color:#555; }
+    .cf-submit {
+      background:var(--red); color:var(--white); border:none;
+      font-family:'Oswald',sans-serif; font-size:13px; font-weight:600;
+      letter-spacing:0.06em; text-transform:uppercase;
+      padding:11px 20px; cursor:pointer; transition:background .2s;
+      white-space:nowrap; height:42px; align-self:end;
+    }
+    .cf-submit:hover { background:var(--red-dark); }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip { background:var(--red); padding:13px 32px; }
+    .trust-inner { max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
+    .trust-item { display:flex; align-items:center; gap:8px; color:var(--white); font-family:'Oswald',sans-serif; font-size:12px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; }
+    .trust-item svg { width:15px; height:15px; flex-shrink:0; }
+
+    /* ── SECTIONS ── */
+    .section { padding:72px 32px; }
+    .section-inner { max-width:1280px; margin:0 auto; }
+    .section-head { margin-bottom:40px; max-width:580px; }
+    .section-head.centered { margin:0 auto 40px; text-align:center; }
+    .eyebrow { display:flex; align-items:center; gap:10px; font-family:'Oswald',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--red); margin-bottom:10px; }
+    .eyebrow::before { content:''; width:20px; height:2px; background:var(--red); }
+    .section-head.centered .eyebrow { justify-content:center; }
+    .section-head.centered .eyebrow::before { display:none; }
+    .section-title { font-size:clamp(24px,3vw,36px); font-weight:700; color:var(--black); line-height:1.1; }
+    .section-title.white { color:var(--white); }
+    .section-desc { font-size:14px; color:var(--steel-lt); margin-top:12px; line-height:1.65; }
+
+    /* ── CATEGORIES ── */
+    .cat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    .cat-card { background:var(--gray-bg); border:1px solid var(--border); padding:24px 18px; text-decoration:none; color:var(--black); transition:all .22s; position:relative; overflow:hidden; }
+    .cat-card:hover { border-color:var(--red); transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,0.09); }
+    .cat-card-arrow { position:absolute; top:18px; right:16px; width:20px; height:20px; opacity:0; transition:opacity .2s; }
+    .cat-card:hover .cat-card-arrow { opacity:1; }
+    .cat-card-arrow svg { width:100%; height:100%; stroke:var(--red); fill:none; }
+    .cat-icon { width:38px; height:38px; background:var(--black); display:flex; align-items:center; justify-content:center; margin-bottom:14px; transition:background .2s; }
+    .cat-card:hover .cat-icon { background:var(--red); }
+    .cat-icon svg { width:20px; height:20px; stroke:var(--white); fill:none; }
+    .cat-name { font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; text-transform:uppercase; letter-spacing:0.02em; margin-bottom:4px; }
+    .cat-sub { font-size:11.5px; color:var(--steel-lt); }
+
+    /* ── SERVICES ── */
+    .services-bg { background:var(--black); }
+    .services-bg .section-title { color:var(--white); }
+    .services-bg .eyebrow { color:var(--gold); }
+    .services-bg .eyebrow::before { background:var(--gold); }
+    .services-bg .section-desc { color:#8a8a90; }
+    .svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#1e1e1e; border:1px solid #1e1e1e; }
+    .svc-card { background:var(--black); padding:32px 26px; transition:background .2s; }
+    .svc-card:hover { background:#111; }
+    .svc-num { font-family:'Oswald',sans-serif; font-size:12px; font-weight:600; color:var(--red); margin-bottom:16px; letter-spacing:0.06em; }
+    .svc-title { font-family:'Oswald',sans-serif; font-size:17px; font-weight:600; color:var(--white); text-transform:uppercase; margin-bottom:10px; }
+    .svc-desc { font-size:13px; color:#8a8a90; line-height:1.7; }
+
+    /* ── BRANDS ── */
+    .brands-wrap { padding:40px 32px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    .brands-inner { max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
+    .brands-label { font-family:'Oswald',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--steel-lt); flex-shrink:0; }
+    .brands-list { display:flex; gap:28px; flex-wrap:wrap; align-items:center; }
+    .brand-name { font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; color:var(--steel); opacity:0.5; transition:opacity .2s; }
+    .brand-name:hover { opacity:0.85; }
+
+    /* ── ABOUT ── */
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+    .about-img-wrap { position:relative; }
+    .about-img { width:100%; aspect-ratio:4/3; object-fit:cover; background:var(--gray-bg); display:block; }
+    .about-badge { position:absolute; bottom:-18px; right:-18px; background:var(--red); color:var(--white); padding:18px 22px; text-align:center; }
+    .about-badge-num { font-family:'Oswald',sans-serif; font-size:28px; font-weight:700; line-height:1; }
+    .about-badge-label { font-size:9px; letter-spacing:0.08em; text-transform:uppercase; margin-top:3px; }
+    .about-list { list-style:none; margin-top:22px; display:flex; flex-direction:column; gap:12px; }
+    .about-list li { display:flex; align-items:flex-start; gap:10px; font-size:13.5px; color:var(--steel); }
+    .about-list svg { width:18px; height:18px; flex-shrink:0; stroke:var(--red); fill:none; margin-top:1px; }
+
+    /* ── HOURS ── */
+    .hours-bg { background:var(--gray-bg); }
+    .hours-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; max-width:400px; }
+    .hours-row { display:flex; justify-content:space-between; padding:9px 14px; background:var(--white); border:1px solid var(--border); font-size:13px; }
+    .hours-day { color:var(--steel-lt); font-weight:500; }
+    .hours-time { font-weight:600; color:var(--black); }
+    .hours-today { border-left:3px solid var(--red); }
+    .hours-today .hours-day { color:var(--red); font-weight:600; }
+    .hours-section-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+
+    /* ── CTA ── */
+    .cta-wrap { background:linear-gradient(110deg,var(--red) 0%,var(--red-dark) 100%); padding:52px 32px; text-align:center; }
+    .cta-title { font-size:clamp(22px,3.5vw,32px); font-weight:700; color:var(--white); margin-bottom:12px; }
+    .cta-sub { font-size:14px; color:rgba(255,255,255,0.82); margin-bottom:26px; }
+
+    /* ── FOOTER ── */
+    footer { background:var(--black); padding:52px 32px 0; }
+    .footer-inner { max-width:1280px; margin:0 auto; }
+    .footer-grid { display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:40px; padding-bottom:36px; border-bottom:1px solid #1e1e1e; }
+    .footer-logo { display:flex; align-items:center; gap:10px; text-decoration:none; margin-bottom:14px; }
+    .footer-desc { font-size:13px; color:#8a8a90; line-height:1.7; max-width:280px; margin-bottom:16px; }
+    .footer-legal-info { font-size:11.5px; color:#666; line-height:1.8; }
+    .footer-legal-info strong { color:#8a8a90; }
+    .footer-col-title { font-family:'Oswald',sans-serif; font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--white); margin-bottom:16px; }
+    .footer-col a { display:block; font-size:13px; color:#8a8a90; text-decoration:none; padding:4px 0; transition:color .15s; }
+    .footer-col a:hover { color:var(--red); }
+    .footer-anpc { padding:20px 0; border-top:1px solid #1e1e1e; display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+    .footer-anpc-label { font-size:11px; color:#555; text-transform:uppercase; letter-spacing:0.08em; font-family:'Oswald',sans-serif; font-weight:600; }
+    .footer-anpc a { font-size:12px; color:#666; text-decoration:none; border:1px solid #333; padding:6px 14px; transition:all .2s; font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.04em; }
+    .footer-anpc a:hover { border-color:var(--red); color:var(--red); }
+    .footer-bottom { padding:18px 0; border-top:1px solid #1e1e1e; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+    .footer-copy { font-size:11.5px; color:#555; }
+    .footer-socials { display:flex; gap:8px; }
+    .footer-social { width:32px; height:32px; background:#1a1a1a; border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; transition:background .2s; }
+    .footer-social:hover { background:var(--red); }
+    .footer-social svg { width:14px; height:14px; fill:var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px){
+      .nav-links,.nav-right .nav-phone{display:none;}
+      .hamburger{display:flex;}
+      .cat-grid{grid-template-columns:repeat(2,1fr);}
+      .svc-grid{grid-template-columns:1fr;}
+      .about-grid,.hours-section-grid{grid-template-columns:1fr;gap:40px;}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+      .cf-grid{grid-template-columns:1fr 1fr;gap:10px;}
+      .cf-submit{grid-column:1/-1;height:auto;padding:12px;}
+    }
+    @media(max-width:640px){
+      .nav-inner{padding:10px 18px;}
+      .hero{margin-top:59px;min-height:580px;}
+      .hero-content{padding:36px 18px;}
+      .hero-stats{grid-template-columns:repeat(4,1fr);gap:0;}
+      .hero-stat-num{font-size:16px;}
+      .hero-stat-label{font-size:8px;}
+      .section{padding:52px 18px;}
+      .cat-grid{grid-template-columns:1fr 1fr;gap:8px;}
+      .trust-inner{gap:10px;}
+      .trust-item{font-size:10.5px;}
+      .brands-inner{flex-direction:column;align-items:flex-start;}
+      .footer-grid{grid-template-columns:1fr;gap:24px;}
+      .footer-bottom{flex-direction:column;align-items:flex-start;}
+      .car-finder-wrap{padding:18px 16px;}
+      .cf-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── COOKIE BANNER ── -->
+<div class="cookie-banner" id="cookieBanner">
+  <p class="cookie-text">Folosim module cookie pentru functionarea corecta a site-ului. Cookie-urile de analiza si marketing vor fi activate doar cu acordul tau. Citeste <a href="#">Politica de Cookies</a>.</p>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-reject" onclick="handleCookies(false)">Respinge tot</button>
+    <button class="cookie-btn cookie-accept" onclick="handleCookies(true)">Accepta tot</button>
+  </div>
+</div>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">RK</div>
+      <div>
+        <div class="nav-logo-text">REY KAR <span>AUTO</span></div>
+        <div class="nav-logo-sub">Piese & Accesorii Auto</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="index.html" class="nav-link">Acasa</a></li>
+      <li class="nav-item">
+        <a href="magazin.html" class="nav-link">
+          Magazin
+          <svg class="nav-link-arrow" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5"/></svg>
+        </a>
+        <div class="mega-menu">
+          <div class="mega-col">
+            <div class="mega-col-title">Uleiuri & Lubrifianti</div>
+            <a href="#">Ulei motor</a>
+            <a href="#">Ulei transmisie manuala</a>
+            <a href="#">Ulei transmisie automata (ATF)</a>
+            <a href="#">Ulei diferential & cutie transfer</a>
+            <a href="#">Ulei hidraulic / servodirectie</a>
+            <a href="#">Lichid frana DOT 4 / DOT 5.1</a>
+            <a href="#">Antigel & lichid racire</a>
+            <a href="#">Freon & gaz climatizare (R134a / R1234yf)</a>
+            <div class="mega-col-title" style="margin-top:14px;">Filtre</div>
+            <a href="#">Filtru ulei</a>
+            <a href="#">Filtru aer motor</a>
+            <a href="#">Filtru combustibil benzina/diesel</a>
+            <a href="#">Filtru Polen / Habitaclu</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Sistem Frane</div>
+            <a href="#">Placute frana fata / spate</a>
+            <a href="#">Discuri frana ventilate / pline</a>
+            <a href="#">Saboti frana (tambur)</a>
+            <a href="#">Etrier frana (reparatie / schimb)</a>
+            <a href="#">Furtun frana armat</a>
+            <a href="#">Pompa frana principala</a>
+            <div class="mega-col-title" style="margin-top:14px;">Suspensie & Directie</div>
+            <a href="#">Amortizoare fata / spate</a>
+            <a href="#">Arcuri elicoidale</a>
+            <a href="#">Bucse stabilizator & punte</a>
+            <a href="#">Brat suspensie (pivot, rotula)</a>
+            <a href="#">Cap de bara / cap directie</a>
+            <a href="#">Rulment roata (cu sau fara ABS)</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Motor & Distributie</div>
+            <a href="#">Kit distributie (curea + role)</a>
+            <a href="#">Curea accesorii & kit</a>
+            <a href="#">Bujii (normale, iridium, platina)</a>
+            <a href="#">Bujii incandescente (diesel)</a>
+            <a href="#">Garnituri motor & chiulasa</a>
+            <a href="#">Termostat & Corp termostat</a>
+            <div class="mega-col-title" style="margin-top:14px;">Electrice & Electronice</div>
+            <a href="#">Baterie auto (acumulator)</a>
+            <a href="#">Alternator & Electromotor</a>
+            <a href="#">Senzori (ABS, temperatura, oxigen)</a>
+            <a href="#">Bec auto (H1, H4, H7, LED)</a>
+            <div class="mega-col-title" style="margin-top:14px;">Caroserie & Accesorii</div>
+            <a href="#">Oglinzi & suporti oglinda</a>
+            <a href="#">Faruri, stopuri, lumini zi</a>
+            <a href="#">Scule & echipamente diagnoza</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item"><a href="despre.html" class="nav-link">Despre Noi</a></li>
+      <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:0769045115" class="nav-phone">
+        <div class="nav-phone-icon">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+        </div>
+        <div>
+          <div class="nav-phone-label">Suna acum</div>
+          <div class="nav-phone-num">0769 045 115</div>
+        </div>
+      </a>
+      <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mob-item"><a href="index.html" class="mob-header">Acasa</a></div>
+  <div class="mob-item">
+    <button class="mob-header" data-toggle="mob-mag">Magazin <svg width="10" height="7" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="white" stroke-width="1.5"/></svg></button>
+    <div class="mob-body" id="mob-mag">
+      <div class="mob-sub">Uleiuri & Lubrifianti</div>
+      <a href="#">Ulei motor</a><a href="#">Ulei transmisie manuala</a><a href="#">Ulei ATF (automata)</a><a href="#">Lichid frana & Antigel</a><a href="#">Freon climatizare</a>
+      <div class="mob-sub">Filtre</div>
+      <a href="#">Filtru ulei</a><a href="#">Filtru aer</a><a href="#">Filtru combustibil</a><a href="#">Filtru Polen</a>
+      <div class="mob-sub">Frane & Suspensie</div>
+      <a href="#">Placute & Discuri frana</a><a href="#">Amortizoare</a><a href="#">Rulment roata</a><a href="#">Brat suspensie</a>
+      <div class="mob-sub">Motor & Electrice</div>
+      <a href="#">Kit distributie</a><a href="#">Bujii</a><a href="#">Baterie auto</a><a href="#">Senzori</a>
+    </div>
+  </div>
+  <div class="mob-item"><a href="despre.html" class="mob-header">Despre Noi</a></div>
+  <div class="mob-item"><a href="contact.html" class="mob-header">Contact</a></div>
+  <a href="tel:0769045115" class="mob-phone-cta">0769 045 115</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Deschis Acum &middot; Husi, Vaslui</div>
+    <h1 class="hero-title">Piese auto si service<br/><span>de incredere</span> in Husi</h1>
+    <p class="hero-sub">Stoc bogat de piese, uleiuri si consumabile. Incarcari freon si diagnoza cu aparatura profesionala Texa. Livrare in toata tara.</p>
+    <div class="hero-btns">
+      <a href="magazin.html" class="btn btn-red">Vezi Magazinul</a>
+      <a href="tel:0769045115" class="btn btn-white-outline">0769 045 115</a>
+    </div>
+
+    <!-- CAR FINDER -->
+    <div class="car-finder-wrap">
+      <div class="cf-title">Gaseste piesa pentru masina ta</div>
+      <div class="cf-grid">
+        <div class="cf-field">
+          <label>Marca</label>
+          <select id="cf-brand" onchange="updateModels()">
+            <option value="">Selecteaza marca</option>
+            <option>Dacia</option><option>Volkswagen</option><option>Renault</option><option>Ford</option><option>Opel</option>
+            <option>Skoda</option><option>Peugeot</option><option>Hyundai</option><option>Toyota</option><option>BMW</option>
+            <option>Mercedes-Benz</option><option>Audi</option><option>Fiat</option><option>Seat</option><option>Kia</option>
+            <option>Citroen</option><option>Nissan</option><option>Mazda</option><option>Honda</option><option>Suzuki</option>
+            <option>Mitsubishi</option><option>Chevrolet</option><option>Volvo</option><option>Alfa Romeo</option><option>Jeep</option>
+            <option>Land Rover</option><option>Porsche</option><option>Subaru</option><option>Lexus</option><option>Lancia</option>
+          </select>
+        </div>
+        <div class="cf-field">
+          <label>Model</label>
+          <select id="cf-model" onchange="updateGens()" disabled>
+            <option value="">Selecteaza modelul</option>
+          </select>
+        </div>
+        <div class="cf-field">
+          <label>Generatie / Modificare</label>
+          <select id="cf-gen" disabled>
+            <option value="">Selecteaza generatia</option>
+          </select>
+        </div>
+        <div class="cf-field">
+          <label>Denumire piesa (optional)</label>
+          <input type="text" id="cf-part" placeholder="ex: filtru ulei, placute frana..." disabled/>
+        </div>
+        <button class="cf-submit" onclick="doSearch()">Cauta</button>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">8000+</div><div class="hero-stat-label">Produse</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">48-72h</div><div class="hero-stat-label">Livrare</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">2 Ani</div><div class="hero-stat-label">Garantie</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Satisfactie</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST STRIP ── -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      Garantie 2 Ani (OUG 140/2021)
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      Livrare 48-72h
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+      Interventii in Raza Orasului Husi
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Diagnoza Rapida Texa
+    </div>
+  </div>
+</div>
+
+<!-- ── CATEGORIES ── -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="eyebrow">Catalog Produse</div>
+      <h2 class="section-title">Cauta Dupa Categorie</h2>
+      <p class="section-desc">Toate piesele si consumabilele auto, organizate pe categorii tehnice clare.</p>
+    </div>
+    <div class="cat-grid">
+      <a href="magazin.html#uleiuri" class="cat-card">
+        <div class="cat-card-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+        <div class="cat-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2L4 7v5c0 5 3.5 9 8 10 4.5-1 8-5 8-10V7l-8-5z"/></svg></div>
+        <div class="cat-name">Uleiuri & Fluide</div>
+        <div class="cat-sub">Motor, transmisie, frana, antigel</div>
+      </a>
+      <a href="magazin.html#filtre" class="cat-card">
+        <div class="cat-card-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+        <div class="cat-icon"><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="cat-name">Filtre</div>
+        <div class="cat-sub">Ulei, aer, combustibil, polen</div>
+      </a>
+      <a href="magazin.html#frane" class="cat-card">
+        <div class="cat-card-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+        <div class="cat-icon"><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <div class="cat-name">Sistem Frane</div>
+        <div class="cat-sub">Placute, discuri, etriere</div>
+      </a>
+      <a href="magazin.html#suspensie" class="cat-card">
+        <div class="cat-card-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+        <div class="cat-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg></div>
+        <div class="cat-name">Suspensie</div>
+        <div class="cat-sub">Amortizoare, arcuri, bucse</div>
+      </a>
+      <a href="magazin.html#motor" class="cat-card">
+        <div class="cat-card-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+        <div class="cat-icon"><svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
+        <div class="cat-name">Motor & Distributie</div>
+        <div class="cat-sub">Kit distributie, bujii, garnituri</div>
+      </a>
+      <a href="magazin.html#electrice" class="cat-card">
+        <div class="cat-card-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+        <div class="cat-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M13 2L3 14h7v8l10-12h-7V2z"/></svg></div>
+        <div class="cat-name">Electrice & Electronice</div>
+        <div class="cat-sub">Baterii, senzori, alternatoare</div>
+      </a>
+      <a href="magazin.html#caroserie" class="cat-card">
+        <div class="cat-card-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+        <div class="cat-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 17h14M5 17a2 2 0 100 4 2 2 0 000-4zM19 17a2 2 0 100 4 2 2 0 000-4zM5 17V9l2-4h10l2 4v8"/></svg></div>
+        <div class="cat-name">Caroserie & Optice</div>
+        <div class="cat-sub">Faruri, oglinzi, accesorii</div>
+      </a>
+      <a href="magazin.html#scule" class="cat-card">
+        <div class="cat-card-arrow"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
+        <div class="cat-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M14.7 6.3a4 4 0 11-5.66 5.66L4 17l3 3 5.04-5.04a4 4 0 115.66-5.66z"/></svg></div>
+        <div class="cat-name">Scule & Echipamente</div>
+        <div class="cat-sub">Diagnoza Texa, freon, lacuire</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="section services-bg">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="eyebrow">Servicii Profesionale</div>
+      <h2 class="section-title white">Nu Doar Piese. Si Service.</h2>
+      <p class="section-desc">Interventii cu aparatura profesionala Texa, la sediu sau in raza orasului Husi.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-num">01</div>
+        <div class="svc-title">Incarcari Freon</div>
+        <div class="svc-desc">Verificare scurgeri, vidare circuit si incarcare freon R134a / R1234yf cu aparat Texa 760 Touch 2 Gas Ready. Rapid, precis, profesional.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">02</div>
+        <div class="svc-title">Diagnoza Completa</div>
+        <div class="svc-desc">Diagnoza electronica completa, citire si stergere erori, testare senzori si sistem A/C cu tester Texa de ultima generatie.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">03</div>
+        <div class="svc-title">Interventii la Domiciliu</div>
+        <div class="svc-desc">Ne deplasam la tine in raza orasului Husi pentru incarcari freon si diagnoza. Suna in prealabil pentru programare.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BRANDS ── -->
+<div class="brands-wrap">
+  <div class="brands-inner">
+    <div class="brands-label">Marci disponibile in stoc</div>
+    <div class="brands-list">
+      <span class="brand-name">Castrol</span>
+      <span class="brand-name">Motul</span>
+      <span class="brand-name">Mobil 1</span>
+      <span class="brand-name">Bosch</span>
+      <span class="brand-name">Mann Filter</span>
+      <span class="brand-name">Febi Bilstein</span>
+      <span class="brand-name">Ate</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="section">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="images/store.jpg" alt="Magazin Rey Kar Auto Husi" class="about-img"/>
+        <div class="about-badge">
+          <div class="about-badge-num">100%</div>
+          <div class="about-badge-label">Garantie</div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Despre Rey Kar Auto</div>
+        <h2 class="section-title">Magazinul tau de piese auto din Husi</h2>
+        <p class="section-desc">Rey Kar Auto este locul din Husi unde gasesti piese auto din stoc sau la comanda, uleiuri de calitate si servicii de incarcari freon si diagnoza cu aparate de ultima generatie. Te asteptam la Strada Melchisedec, Nr. 26.</p>
+        <ul class="about-list">
+          <li><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg> Piese auto din stoc si la comanda</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg> Aparate profesionale Texa de ultima generatie</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg> Garantie 2 ani pe toate produsele noi</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg> Interventii la domiciliu in raza orasului Husi</li>
+        </ul>
+        <div style="margin-top:28px;"><a href="despre.html" class="btn btn-dark">Afla Mai Multe</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOURS ── -->
+<section class="section hours-bg">
+  <div class="section-inner">
+    <div class="hours-section-grid">
+      <div>
+        <div class="eyebrow">Program de Lucru</div>
+        <h2 class="section-title">Ne gasesti la Str. Melchisedec 26, Husi</h2>
+        <p class="section-desc" style="margin-top:12px;">Viziteaza-ne sau suna inainte pentru a verifica disponibilitatea unui produs sau pentru a programa o interventie.</p>
+        <div style="margin-top:24px;"><a href="tel:0769045115" class="btn btn-red">0769 045 115</a></div>
+      </div>
+      <div>
+        <div class="hours-grid">
+          <div class="hours-row"><span class="hours-day">Luni</span><span class="hours-time">09:00 - 17:00</span></div>
+          <div class="hours-row"><span class="hours-day">Marti</span><span class="hours-time">09:00 - 17:00</span></div>
+          <div class="hours-row"><span class="hours-day">Miercuri</span><span class="hours-time">09:00 - 17:00</span></div>
+          <div class="hours-row"><span class="hours-day">Joi</span><span class="hours-time">09:00 - 17:00</span></div>
+          <div class="hours-row"><span class="hours-day">Vineri</span><span class="hours-time">09:00 - 17:00</span></div>
+          <div class="hours-row"><span class="hours-day">Sambata</span><span class="hours-time">09:00 - 13:00</span></div>
+          <div class="hours-row" style="grid-column:1/-1;"><span class="hours-day">Duminica</span><span class="hours-time">09:00 - 12:00</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<div class="cta-wrap">
+  <h2 class="cta-title">Ai nevoie de o piesa anume?</h2>
+  <p class="cta-sub">Suna-ne sau viziteaza-ne. Iti gasim piesa potrivita pentru masina ta.</p>
+  <a href="tel:0769045115" class="btn btn-white-outline">0769 045 115</a>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo">
+          <div class="nav-logo-mark">RK</div>
+          <div>
+            <div class="nav-logo-text">REY KAR <span>AUTO</span></div>
+          </div>
+        </a>
+        <p class="footer-desc">Piese auto, uleiuri si accesorii in Husi. Incarcari freon si diagnoza cu aparatura profesionala Texa.</p>
+        <div class="footer-legal-info">
+          <strong>REY KAR AUTO SRL</strong><br/>
+          Str. Melchisedec, Nr. 26, Husi, Jud. Vaslui<br/>
+          CUI: 48282801<br/>
+          Nr. Reg. Com.: J37/[Completati]/[An]
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Magazin</div>
+        <a href="#">Uleiuri & Fluide</a>
+        <a href="#">Filtre</a>
+        <a href="#">Sistem Frane</a>
+        <a href="#">Suspensie</a>
+        <a href="#">Motor & Distributie</a>
+        <a href="#">Electrice & Senzori</a>
+        <a href="#">Scule & Echipamente</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Companie</div>
+        <a href="despre.html">Despre Noi</a>
+        <a href="contact.html">Contact</a>
+        <a href="#">Termeni si Conditii</a>
+        <a href="#">Politica de Confidentialitate</a>
+        <a href="#">Politica de Cookies</a>
+        <a href="#">Politica de Retur</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="tel:0769045115">0769 045 115</a>
+        <a href="#">Str. Melchisedec, Nr. 26</a>
+        <a href="#">Husi, Judet Vaslui</a>
+        <a href="#">Luni - Vineri: 09-17</a>
+        <a href="#">Sambata: 09-13</a>
+        <a href="#">Duminica: 09-12</a>
+      </div>
+    </div>
+    <div class="footer-anpc">
+      <span class="footer-anpc-label">Protectia Consumatorului</span>
+      <a href="https://anpc.ro" target="_blank" rel="noopener">ANPC</a>
+      <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">SOL — Solutionare Online Litigii</a>
+      <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener">SAL — Solutionare Alternativa</a>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2025 Rey Kar Auto SRL &middot; CUI 48282801 &middot; Toate drepturile rezervate.</span>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/people/Rey-Kar/61550008808397/" target="_blank" class="footer-social">
+          <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5-.8 9-5.13 9-9.95z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── COOKIE BANNER ──
+  function handleCookies(accept) {
+    localStorage.setItem('rk-cookies', accept ? 'accepted' : 'rejected');
+    document.getElementById('cookieBanner').classList.add('hidden');
+  }
+  if (localStorage.getItem('rk-cookies')) {
+    document.getElementById('cookieBanner').classList.add('hidden');
+  }
+
+  // ── MOBILE MENU ──
+  document.getElementById('hamburgerBtn').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+  document.querySelectorAll('.mob-header[data-toggle]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById(btn.dataset.toggle).classList.toggle('open');
+    });
+  });
+
+  // ── CAR FINDER DATA ──
+  const carData = {
+    'Dacia': {
+      'Logan': ['I (2004-2012)', 'II (2012-2020)', 'III (2020-prezent)'],
+      'Sandero': ['I (2008-2012)', 'II (2012-2020)', 'III (2020-prezent)'],
+      'Duster': ['I (2010-2017)', 'II (2018-2023)', 'III (2023-prezent)'],
+      'Dokker': ['(2012-2021)'],
+      'Lodgy': ['(2012-2022)'],
+      'Spring': ['(2021-prezent)'],
+      'Pick Up': ['(1995-2006)']
+    },
+    'Volkswagen': {
+      'Golf': ['IV (1997-2003)', 'V (2003-2008)', 'VI (2008-2012)', 'VII (2012-2019)', 'VIII (2019-prezent)'],
+      'Polo': ['IV 9N (2001-2009)', 'V 6R (2009-2017)', 'VI AW (2017-prezent)'],
+      'Passat': ['B5 (1996-2005)', 'B6 (2005-2010)', 'B7 (2010-2014)', 'B8 (2014-prezent)'],
+      'Tiguan': ['I (2007-2015)', 'II (2016-prezent)'],
+      'Touareg': ['I (2002-2010)', 'II (2010-2018)', 'III (2018-prezent)'],
+      'Jetta': ['IV (1999-2005)', 'V (2005-2010)', 'VI (2010-2018)'],
+      'Caddy': ['III (2004-2015)', 'IV (2015-2020)'],
+      'T-Roc': ['(2017-prezent)'],
+      'Sharan': ['I (1995-2010)', 'II (2010-2022)']
+    },
+    'Renault': {
+      'Clio': ['II (1998-2005)', 'III (2005-2012)', 'IV (2012-2019)', 'V (2019-prezent)'],
+      'Megane': ['II (2002-2008)', 'III (2008-2015)', 'IV (2015-prezent)'],
+      'Laguna': ['II (2001-2007)', 'III (2007-2015)'],
+      'Scenic': ['II (2003-2009)', 'III (2009-2016)'],
+      'Duster': ['I (2010-2017)', 'II (2018-2023)'],
+      'Kangoo': ['I (1997-2007)', 'II (2008-2020)'],
+      'Captur': ['I (2013-2019)', 'II (2019-prezent)'],
+      'Trafic': ['II (2001-2014)', 'III (2014-prezent)'],
+      'Master': ['II (1998-2010)', 'III (2010-prezent)']
+    },
+    'Ford': {
+      'Focus': ['I (1998-2004)', 'II (2004-2011)', 'III (2011-2018)', 'IV (2018-prezent)'],
+      'Fiesta': ['V (2002-2008)', 'VI (2008-2017)', 'VII (2017-2023)'],
+      'Mondeo': ['III (2000-2007)', 'IV (2007-2014)', 'V (2014-2022)'],
+      'Kuga': ['I (2008-2012)', 'II (2012-2019)', 'III (2019-prezent)'],
+      'Galaxy': ['I (1995-2006)', 'II (2006-2015)'],
+      'Transit': ['V (2000-2013)', 'VI (2013-prezent)'],
+      'C-Max': ['I (2003-2010)', 'II (2010-2019)'],
+      'S-Max': ['I (2006-2014)', 'II (2015-2023)'],
+      'Ranger': ['III (2011-2019)', 'IV (2019-prezent)']
+    },
+    'Opel': {
+      'Astra': ['F (1991-2002)', 'G (1998-2009)', 'H (2004-2014)', 'J (2009-2015)', 'K (2015-2021)'],
+      'Corsa': ['C (2000-2006)', 'D (2006-2014)', 'E (2014-2019)', 'F (2019-prezent)'],
+      'Insignia': ['A (2008-2017)', 'B (2017-prezent)'],
+      'Vectra': ['B (1995-2002)', 'C (2002-2008)'],
+      'Zafira': ['A (1999-2005)', 'B (2005-2014)', 'C (2011-2019)'],
+      'Mokka': ['A (2012-2020)', 'B (2020-prezent)'],
+      'Meriva': ['A (2003-2010)', 'B (2010-2017)'],
+      'Combo': ['C (2001-2011)', 'D (2012-2018)']
+    },
+    'Skoda': {
+      'Octavia': ['I (1996-2010)', 'II (2004-2013)', 'III (2013-2019)', 'IV (2020-prezent)'],
+      'Fabia': ['I (1999-2007)', 'II (2007-2014)', 'III (2014-2021)'],
+      'Superb': ['I (2001-2008)', 'II (2008-2015)', 'III (2015-prezent)'],
+      'Yeti': ['(2009-2017)'],
+      'Kodiaq': ['(2016-prezent)'],
+      'Karoq': ['(2017-prezent)'],
+      'Rapid': ['(2012-2019)'],
+      'Roomster': ['(2006-2015)']
+    },
+    'Peugeot': {
+      '206': ['(1998-2012)'],
+      '207': ['(2006-2015)'],
+      '208': ['I (2012-2019)', 'II (2019-prezent)'],
+      '301': ['(2012-prezent)'],
+      '307': ['(2001-2009)'],
+      '308': ['I (2007-2013)', 'II (2013-2021)'],
+      '406': ['(1995-2004)'],
+      '407': ['(2004-2011)'],
+      '508': ['I (2010-2018)', 'II (2018-prezent)'],
+      '2008': ['I (2013-2019)', 'II (2019-prezent)'],
+      '3008': ['I (2009-2016)', 'II (2016-prezent)'],
+      'Partner': ['I (1996-2008)', 'II (2008-2018)'],
+      'Expert': ['I (1995-2006)', 'II (2007-2016)']
+    },
+    'Hyundai': {
+      'i20': ['I (2008-2014)', 'II (2014-2020)', 'III (2020-prezent)'],
+      'i30': ['I (2007-2011)', 'II (2011-2017)', 'III (2017-prezent)'],
+      'i40': ['(2011-2019)'],
+      'Tucson': ['I JM (2004-2010)', 'II LM (2009-2015)', 'III TL (2015-2020)'],
+      'Santa Fe': ['II (2006-2012)', 'III (2012-2018)', 'IV (2018-prezent)'],
+      'Elantra': ['IV HD (2006-2010)', 'V MD (2010-2015)', 'VI AD (2015-2020)'],
+      'ix35': ['(2010-2015)'],
+      'Kona': ['(2017-prezent)']
+    },
+    'Toyota': {
+      'Yaris': ['I (1999-2005)', 'II (2005-2011)', 'III (2011-2020)', 'IV (2020-prezent)'],
+      'Corolla': ['E120 (2000-2007)', 'E150 (2006-2013)', 'E210 (2018-prezent)'],
+      'Avensis': ['II (2003-2008)', 'III (2008-2018)'],
+      'Auris': ['I (2006-2012)', 'II (2012-2019)'],
+      'RAV4': ['III (2005-2012)', 'IV (2012-2018)', 'V (2018-prezent)'],
+      'Hilux': ['VII (2005-2015)', 'VIII (2015-prezent)'],
+      'Land Cruiser': ['J100 (1998-2007)', 'J200 (2007-2021)']
+    },
+    'BMW': {
+      'Seria 1': ['E87 (2004-2011)', 'F20 (2011-2019)', 'F40 (2019-prezent)'],
+      'Seria 3': ['E46 (1998-2006)', 'E90 (2005-2012)', 'F30 (2011-2019)', 'G20 (2018-prezent)'],
+      'Seria 5': ['E39 (1995-2003)', 'E60 (2003-2010)', 'F10 (2009-2016)', 'G30 (2016-prezent)'],
+      'Seria 7': ['E38 (1994-2001)', 'E65 (2001-2008)', 'F01 (2008-2015)', 'G11 (2015-prezent)'],
+      'X1': ['E84 (2009-2015)', 'F48 (2015-2022)', 'U11 (2022-prezent)'],
+      'X3': ['E83 (2003-2010)', 'F25 (2010-2017)', 'G01 (2017-prezent)'],
+      'X5': ['E53 (1999-2006)', 'E70 (2006-2013)', 'F15 (2013-2018)', 'G05 (2018-prezent)']
+    },
+    'Mercedes-Benz': {
+      'Clasa A': ['W168 (1997-2004)', 'W169 (2004-2012)', 'W176 (2012-2018)', 'W177 (2018-prezent)'],
+      'Clasa B': ['W245 (2005-2011)', 'W246 (2011-2018)', 'W247 (2018-prezent)'],
+      'Clasa C': ['W202 (1993-2000)', 'W203 (2000-2007)', 'W204 (2007-2014)', 'W205 (2014-2021)'],
+      'Clasa E': ['W210 (1995-2003)', 'W211 (2002-2009)', 'W212 (2009-2016)', 'W213 (2016-prezent)'],
+      'Clasa S': ['W220 (1998-2005)', 'W221 (2005-2013)', 'W222 (2013-2021)'],
+      'GLC': ['(2015-prezent)'],
+      'GLE': ['W166 (2011-2018)', 'W167 (2018-prezent)'],
+      'Sprinter': ['W901-905 (1995-2006)', 'W906 (2006-2018)', 'W907 (2018-prezent)'],
+      'Vito': ['W638 (1996-2003)', 'W639 (2003-2014)', 'W447 (2014-prezent)']
+    },
+    'Audi': {
+      'A3': ['8L (1996-2003)', '8P (2003-2012)', '8V (2012-2020)', '8Y (2020-prezent)'],
+      'A4': ['B5 (1994-2001)', 'B6 (2000-2004)', 'B7 (2004-2008)', 'B8 (2007-2015)', 'B9 (2015-prezent)'],
+      'A5': ['8T (2007-2016)', 'F5 (2016-prezent)'],
+      'A6': ['C5 (1997-2004)', 'C6 (2004-2011)', 'C7 (2011-2018)', 'C8 (2018-prezent)'],
+      'Q3': ['8U (2011-2018)', 'F3 (2018-prezent)'],
+      'Q5': ['8R (2008-2016)', 'FY (2016-prezent)'],
+      'Q7': ['4L (2005-2015)', '4M (2015-prezent)'],
+      'TT': ['8N (1998-2006)', '8J (2006-2014)', '8S (2014-2023)']
+    },
+    'Fiat': {
+      'Punto': ['188 (1999-2010)', '199 Grande Punto (2005-2012)'],
+      'Bravo': ['198 (2007-2014)'],
+      'Stilo': ['(2001-2010)'],
+      'Tipo': ['356 (2015-prezent)'],
+      'Panda': ['169 (2003-2012)', '312 (2012-prezent)'],
+      '500': ['312 (2007-prezent)'],
+      'Doblo': ['119 (2001-2010)', '263 (2009-2021)'],
+      'Ducato': ['250 (2006-2014)', '290 (2014-prezent)']
+    },
+    'Seat': {
+      'Ibiza': ['6L (2002-2008)', '6J (2008-2017)', 'KJ (2017-prezent)'],
+      'Leon': ['1M (1999-2006)', '1P (2005-2012)', '5F (2012-2020)', 'KL (2020-prezent)'],
+      'Altea': ['(2004-2015)'],
+      'Toledo': ['1M (1999-2004)', '5P (2004-2009)'],
+      'Arona': ['(2017-prezent)'],
+      'Ateca': ['(2016-prezent)']
+    },
+    'Kia': {
+      'Rio': ['II (2005-2011)', 'III (2011-2017)', 'IV (2017-prezent)'],
+      'Ceed': ['I (2006-2012)', 'II (2012-2018)', 'III (2018-prezent)'],
+      'Sportage': ['III (2010-2015)', 'IV (2015-2021)', 'V (2021-prezent)'],
+      'Sorento': ['II (2009-2014)', 'III (2014-2020)'],
+      'Picanto': ['I (2004-2011)', 'II (2011-2017)', 'III (2017-prezent)']
+    },
+    'Citroen': {
+      'C3': ['I (2002-2009)', 'II (2009-2016)', 'III (2016-prezent)'],
+      'C4': ['I (2004-2010)', 'II (2010-2018)'],
+      'C5': ['I (2001-2008)', 'II (2008-2017)'],
+      'Berlingo': ['I (1996-2008)', 'II (2008-2018)', 'III (2018-prezent)'],
+      'Jumper': ['II (2006-2014)', 'III (2014-prezent)'],
+      'C-Elysee': ['(2012-prezent)']
+    },
+    'Nissan': {
+      'Micra': ['K12 (2002-2010)', 'K13 (2010-2017)', 'K14 (2017-prezent)'],
+      'Qashqai': ['I J10 (2006-2013)', 'II J11 (2013-2021)', 'III J12 (2021-prezent)'],
+      'Juke': ['(2010-2019)', 'II (2019-prezent)'],
+      'X-Trail': ['T30 (2001-2007)', 'T31 (2007-2013)', 'T32 (2014-prezent)'],
+      'Almera': ['N16 (2000-2006)'],
+      'Navara': ['D40 (2004-2015)', 'D23 (2014-prezent)']
+    },
+    'Mazda': {
+      'Mazda 3': ['BK (2003-2009)', 'BL (2009-2013)', 'BM (2013-2019)', 'BP (2019-prezent)'],
+      'Mazda 6': ['GG (2002-2007)', 'GH (2007-2012)', 'GJ (2012-2018)'],
+      'CX-5': ['I (2011-2017)', 'II (2017-prezent)'],
+      'Mazda 2': ['DY (2002-2007)', 'DE (2007-2014)', 'DJ (2014-prezent)'],
+      'Mazda 5': ['CR (2005-2010)', 'CW (2010-2018)']
+    },
+    'Honda': {
+      'Civic': ['VII EP (2001-2005)', 'VIII FN (2005-2011)', 'IX FB (2011-2015)', 'X FC (2015-2021)'],
+      'CR-V': ['II (2001-2006)', 'III (2006-2012)', 'IV (2012-2018)'],
+      'Jazz': ['II GD (2001-2008)', 'III GE (2008-2015)', 'IV GK (2015-2020)'],
+      'Accord': ['VII (2002-2007)', 'VIII (2007-2015)'],
+      'HR-V': ['I (1998-2006)', 'II (2015-2022)']
+    },
+    'Suzuki': {
+      'Swift': ['II SF (1989-2004)', 'III MZ (2004-2010)', 'IV FZ (2010-2017)', 'V AZ (2017-prezent)'],
+      'SX4': ['I (2006-2013)', 'S-Cross II (2013-prezent)'],
+      'Vitara': ['III LY (2015-prezent)'],
+      'Jimny': ['III (1998-2018)', 'IV (2018-prezent)'],
+      'Alto': ['VI (2002-2008)']
+    },
+    'Mitsubishi': {
+      'Colt': ['VI Z3 (2004-2012)'],
+      'Lancer': ['IX (2003-2007)', 'X (2007-2016)'],
+      'Outlander': ['II (2006-2012)', 'III (2012-2021)'],
+      'L200': ['IV (2005-2015)', 'V (2015-prezent)'],
+      'Eclipse Cross': ['(2017-prezent)'],
+      'ASX': ['(2010-prezent)']
+    },
+    'Chevrolet': {
+      'Aveo': ['T200 (2002-2011)', 'T300 (2011-2015)'],
+      'Cruze': ['I (2009-2015)'],
+      'Captiva': ['C100 (2006-2011)', 'C140 (2011-2016)'],
+      'Orlando': ['(2010-2015)'],
+      'Spark': ['M200 (2005-2010)', 'M300 (2009-2015)']
+    },
+    'Volvo': {
+      'V40': ['II (2012-2019)'],
+      'V50': ['(2004-2012)'],
+      'V60': ['I (2010-2018)', 'II (2018-prezent)'],
+      'S40': ['II (2004-2012)'],
+      'S60': ['I (2000-2009)', 'II (2010-2018)'],
+      'XC60': ['I (2008-2017)', 'II (2017-prezent)'],
+      'XC90': ['I (2002-2014)', 'II (2014-prezent)']
+    },
+    'Alfa Romeo': {
+      '147': ['(2000-2010)'],
+      '156': ['(1997-2007)'],
+      '159': ['(2005-2011)'],
+      'Giulietta': ['(2010-2020)'],
+      'Giulia': ['(2015-prezent)'],
+      'Stelvio': ['(2016-prezent)']
+    },
+    'Jeep': {
+      'Cherokee': ['KJ (2001-2007)', 'KL (2014-prezent)'],
+      'Grand Cherokee': ['WJ (1999-2004)', 'WK (2004-2010)', 'WK2 (2010-2021)'],
+      'Compass': ['MK49 (2006-2016)', 'MP (2017-prezent)'],
+      'Renegade': ['(2014-prezent)']
+    },
+    'Land Rover': {
+      'Freelander': ['I (1997-2006)', 'II (2006-2014)'],
+      'Discovery': ['II (1998-2004)', 'III (2004-2009)', 'IV (2009-2017)'],
+      'Range Rover Sport': ['I (2005-2013)', 'II (2013-2022)'],
+      'Defender': ['(1983-2016)', 'L663 (2020-prezent)']
+    },
+    'Porsche': {
+      'Cayenne': ['I 9PA (2002-2010)', 'II 92A (2010-2017)', 'III E3 (2017-prezent)'],
+      'Macan': ['95B (2014-2023)'],
+      'Boxster': ['986 (1996-2004)', '987 (2004-2012)', '981 (2012-2016)'],
+      '911': ['996 (1997-2004)', '997 (2004-2012)', '991 (2012-2019)']
+    },
+    'Subaru': {
+      'Impreza': ['GD/GG (2000-2007)', 'GH/GE (2007-2011)', 'GP (2011-2016)'],
+      'Forester': ['II (2002-2008)', 'III (2008-2013)', 'IV (2013-2018)'],
+      'Legacy': ['III (1998-2003)', 'IV (2003-2009)', 'V (2009-2014)'],
+      'Outback': ['III (2003-2009)', 'IV (2009-2014)']
+    },
+    'Lexus': {
+      'IS': ['XE10 (1999-2005)', 'XE20 (2005-2013)', 'XE30 (2013-prezent)'],
+      'ES': ['XV50 (2012-2018)', 'XV70 (2018-prezent)'],
+      'RX': ['XU30 (2003-2009)', 'AL10 (2009-2015)', 'AL20 (2015-2022)'],
+      'NX': ['AZ10 (2014-2021)', 'AZ20 (2021-prezent)']
+    },
+    'Lancia': {
+      'Ypsilon': ['843 (2003-2011)', '846 (2011-prezent)'],
+      'Delta': ['III (2008-2014)'],
+      'Musa': ['(2004-2012)'],
+      'Phedra': ['(2002-2010)']
+    }
+  };
+
+  function updateModels() {
+    const brand = document.getElementById('cf-brand').value;
+    const modelSel = document.getElementById('cf-model');
+    const genSel = document.getElementById('cf-gen');
+    const partIn = document.getElementById('cf-part');
+    modelSel.innerHTML = '<option value="">Selecteaza modelul</option>';
+    genSel.innerHTML = '<option value="">Selecteaza generatia</option>';
+    genSel.disabled = true;
+    partIn.disabled = true;
+    if (brand && carData[brand]) {
+      Object.keys(carData[brand]).forEach(model => {
+        modelSel.innerHTML += `<option value="${model}">${model}</option>`;
+      });
+      modelSel.disabled = false;
+    } else {
+      modelSel.disabled = true;
+    }
+  }
+
+  function updateGens() {
+    const brand = document.getElementById('cf-brand').value;
+    const model = document.getElementById('cf-model').value;
+    const genSel = document.getElementById('cf-gen');
+    const partIn = document.getElementById('cf-part');
+    genSel.innerHTML = '<option value="">Selecteaza generatia</option>';
+    if (brand && model && carData[brand] && carData[brand][model]) {
+      carData[brand][model].forEach(gen => {
+        genSel.innerHTML += `<option value="${gen}">${gen}</option>`;
+      });
+      genSel.disabled = false;
+      partIn.disabled = false;
+    } else {
+      genSel.disabled = true;
+      partIn.disabled = true;
+    }
+  }
+
+  function doSearch() {
+    const brand = document.getElementById('cf-brand').value;
+    const model = document.getElementById('cf-model').value;
+    const gen = document.getElementById('cf-gen').value;
+    const part = document.getElementById('cf-part').value.trim();
+    if (!brand) { alert('Selecteaza marca masinii.'); return; }
+    if (!model) { alert('Selecteaza modelul masinii.'); return; }
+    let q = brand + ' ' + model;
+    if (gen) q += ' ' + gen;
+    if (part) q += ' ' + part;
+    window.location.href = 'magazin.html?q=' + encodeURIComponent(q);
+  }
+
+  // Highlight today's hours row
+  const days = ['Duminica','Luni','Marti','Miercuri','Joi','Vineri','Sambata'];
+  const today = days[new Date().getDay()];
+  document.querySelectorAll('.hours-row').forEach(row => {
+    const dayEl = row.querySelector('.hours-day');
+    if (dayEl && dayEl.textContent.trim() === today) row.classList.add('hours-today');
+  });
+</script>
+</body>
+</html>
